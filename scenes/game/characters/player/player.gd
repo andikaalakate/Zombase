@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 50.0
+const SPEED = 100.0
 
 func _physics_process(_delta):
 	var direction = Vector2()
