@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
+var SPEED = 75.0
 
 func _physics_process(_delta):
 	var direction = Vector2()
@@ -12,6 +12,12 @@ func _physics_process(_delta):
 		direction.y += 1
 	if Input.is_action_pressed("up"):
 		direction.y -= 1
+	#if Input.is_action_pressed("lari"):
+		#SPEED = 150
+	#else:
+		#SPEED = 100
+		
+	#print(SPEED)
 
 	velocity = direction.normalized() * SPEED
 
@@ -27,5 +33,7 @@ func _physics_process(_delta):
 	# Handle animations.
 	if direction != Vector2():
 		$AnimationPlayer.play("jalan")
+	elif SPEED == 150:
+		$AnimationPlayer.play("lari")
 	else:
 		$AnimationPlayer.play("idle")
