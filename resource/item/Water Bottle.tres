@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c60numbyfrehy"]
+
+[ext_resource type="Texture2D" uid="uid://ddkpl3v63aef3" path="res://assets/sprites/items/water bottle.png" id="1_xcou0"]
+[ext_resource type="Script" path="res://script/item.gd" id="2_byopi"]
+
+[resource]
+script = ExtResource("2_byopi")
+icon = ExtResource("1_xcou0")
+name = "Water Bottle"
+type = "Consume"

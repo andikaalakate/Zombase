@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm5x47k6jmkoa"]
+
+[ext_resource type="Script" path="res://script/mainmenu.gd" id="1_e732a"]
+[ext_resource type="FontFile" uid="uid://brb8jbidxj0np" path="res://assets/pixelmania/Pixelmania.ttf" id="2_on7h3"]
+[ext_resource type="Texture2D" uid="uid://d325yt54hrstp" path="res://assets/sprites/title.png" id="3_0br81"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5xg0b"]
+
+[node name="TextureRect" type="TextureRect"]
+modulate = Color(0.239216, 0.239216, 0.239216, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_5xg0b")
+script = ExtResource("1_e732a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 434.311
+offset_top = 426.535
+offset_right = 537.311
+offset_bottom = 466.535
+scale = Vector2(5, 5)
+theme_override_fonts/font = ExtResource("2_on7h3")
+text = "PLAY"
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(690.165, 210.508)
+scale = Vector2(4, 4)
+texture = ExtResource("3_0br81")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

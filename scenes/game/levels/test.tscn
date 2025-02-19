@@ -1,16 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://gosjkcguucet"]
+[gd_scene load_steps=17 format=3 uid="uid://gosjkcguucet"]
 
 [ext_resource type="Script" path="res://scenes/game/levels/test.gd" id="1_3xn74"]
 [ext_resource type="PackedScene" uid="uid://d4hiu7316d5dm" path="res://scenes/game/characters/player/player.tscn" id="1_mt7j0"]
-[ext_resource type="Texture2D" uid="uid://citc6kx4u7vt" path="res://assets/sprites/tiletest.png" id="2_xjgkx"]
-[ext_resource type="Texture2D" uid="uid://bm2r5ptqptcgl" path="res://assets/sprites/tilemaps/jalan/TileMaps-JalanRaya.png" id="3_vh6bh"]
+[ext_resource type="Texture2D" uid="uid://0domutesvvxx" path="res://assets/sprites/tilemaps/tilestreet64.png" id="2_5v61u"]
+[ext_resource type="PackedScene" uid="uid://bt6ktfn850b7l" path="res://scenes/game/characters/enemy.tscn" id="5_al7il"]
+[ext_resource type="PackedScene" uid="uid://ng5x4832dm0e" path="res://scenes/building/rumahkiri.tscn" id="5_iing1"]
+[ext_resource type="PackedScene" uid="uid://du3slk5eaww1e" path="res://scenes/building/rumahbelakang.tscn" id="6_cr05k"]
+[ext_resource type="PackedScene" uid="uid://gk7oddnl8mj1" path="res://scenes/building/rumah.tscn" id="6_khgdq"]
+[ext_resource type="PackedScene" uid="uid://s3l754tpxbft" path="res://scenes/items/abstract_item.tscn" id="8_ug2lb"]
+[ext_resource type="Resource" uid="uid://c7qbrtgnpw7jl" path="res://resource/item/pistol.tres" id="9_gjr38"]
+[ext_resource type="Resource" uid="uid://bpm3qa5jgof76" path="res://resource/item/Chocolate.tres" id="10_1ampo"]
+[ext_resource type="Resource" uid="uid://d0l54js0u383v" path="res://resource/item/Soda.tres" id="11_wyu51"]
+[ext_resource type="Script" path="res://script/ZombieSpawner.gd" id="12_nldcx"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_os4tn"]
-texture = ExtResource("2_xjgkx")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ih2u8"]
-texture = ExtResource("3_vh6bh")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6aso1"]
+texture = ExtResource("2_5v61u")
+texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -20,6 +25,17 @@ texture = ExtResource("3_vh6bh")
 6:0/0 = 0
 7:0/0 = 0
 8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -29,6 +45,17 @@ texture = ExtResource("3_vh6bh")
 6:1/0 = 0
 7:1/0 = 0
 8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
@@ -38,6 +65,17 @@ texture = ExtResource("3_vh6bh")
 6:2/0 = 0
 7:2/0 = 0
 8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
 0:3/0 = 0
 1:3/0 = 0
 2:3/0 = 0
@@ -47,23 +85,350 @@ texture = ExtResource("3_vh6bh")
 6:3/0 = 0
 7:3/0 = 0
 8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+18:11/0 = 0
+19:11/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+17:13/0 = 0
+18:13/0 = 0
+19:13/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+18:14/0 = 0
+19:14/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+18:15/0 = 0
+19:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_x0tbb"]
-sources/0 = SubResource("TileSetAtlasSource_os4tn")
-sources/1 = SubResource("TileSetAtlasSource_ih2u8")
+[sub_resource type="TileSet" id="TileSet_abd63"]
+sources/3 = SubResource("TileSetAtlasSource_6aso1")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rlg14"]
+radius = 7.698
+height = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ojynl"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_3xn74")
-
-[node name="Player" parent="." instance=ExtResource("1_mt7j0")]
-light_mask = 2
-visibility_layer = 2
-z_index = 50
-position = Vector2(272, 208)
+playerpath = NodePath("Player")
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(1280, 720)
-scale = Vector2(3, 3)
-tile_set = SubResource("TileSet_x0tbb")
+tile_set = SubResource("TileSet_abd63")
 format = 2
-layer_0/tile_data = PackedInt32Array(65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, -983078, 1, 0, -917542, 1, 0, -852006, 1, 0, -786470, 1, 0, -720934, 1, 0, -720933, 65537, 0, -786469, 65537, 0, -852005, 65537, 0, -917541, 65537, 0, -983077, 65537, 0, -655397, 65537, 0, -589861, 65537, 0, -524325, 65537, 0, -458789, 65537, 0, -393253, 65537, 0, -327717, 65537, 0, -262181, 65537, 0, -196645, 65537, 0, -131109, 65537, 0, -65573, 65537, 0, -37, 65537, 0, 65499, 65537, 0, -655398, 1, 0, -589862, 1, 0, -524326, 1, 0, -458790, 1, 0, -393254, 1, 0, -327718, 1, 0, -262182, 1, 0, -196646, 1, 0, -131110, 1, 0, -65574, 1, 0, -38, 1, 0, 65498, 1, 0, 131034, 262145, 2, 196570, 262145, 1, 131035, 131073, 2, 196571, 262145, 3, 196572, 131073, 0, 196573, 131073, 0, 196574, 131073, 0, 196575, 131073, 0, 196576, 131073, 0, 131036, 196609, 0, 131037, 196609, 0, 131038, 196609, 0, 131039, 196609, 0, 131040, 196609, 0, 131041, 458753, 0, 196577, 458753, 1, 131042, 65537, 2, 196578, 65537, 1, 65506, 458753, 2, 65507, 524289, 2, -30, 1, 0, -65566, 1, 0, -131102, 1, 0, -196638, 327681, 2, -29, 65537, 0, -65565, 65537, 0, -131101, 65537, 0, -196637, 131073, 1, -262174, 262145, 0, -196631, 458753, 1, -262167, 458753, 0, -196629, 1, 1, -196630, 65537, 1, -262166, 65537, 2, -262165, 1, 2, -327702, 458753, 2, -327701, 524289, 2, -131093, 524289, 3, -131094, 458753, 3, -196628, 524289, 1, -262164, 524289, 0, -262173, 393217, 2, -262172, 196609, 0, -262171, 196609, 0, -262170, 196609, 0, -262169, 196609, 0, -262168, 196609, 0, -196636, 131073, 0, -196635, 131073, 0, -196634, 131073, 0, -196633, 131073, 0, -196632, 131073, 0, -65558, 1, 0, -22, 1, 0, 65514, 1, 0, -65557, 65537, 0, -21, 65537, 0, 65515, 65537, 0, -393237, 65537, 0, -458773, 65537, 0, -524309, 65537, 0, -589845, 65537, 0, -655381, 65537, 0, -655382, 1, 0, -589846, 1, 0, -524310, 1, 0, -458774, 1, 0, -393238, 1, 0, -196627, 131073, 0, -196626, 131073, 0, -196625, 131073, 0, -196624, 131073, 0, -262163, 196609, 0, -262162, 196609, 0, -262161, 196609, 0, -262160, 196609, 0)
+layer_0/tile_data = PackedInt32Array(524314, 3, 0, 524318, 65539, 0, 524322, 196611, 1, 524326, 196611, 1, 786458, 131075, 1342177282, 524330, 131075, 0, 524334, 131075, 0, 524338, 131075, 0, 851994, 262147, 3)
+
+[node name="Player" parent="." instance=ExtResource("1_mt7j0")]
+position = Vector2(755.996, 121.077)
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+zoom = Vector2(5, 5)
+limit_left = 350
+limit_top = 30
+limit_right = 840
+limit_bottom = 250
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+editor_draw_limits = true
+metadata/_edit_lock_ = true
+
+[node name="Area2D2" type="Area2D" parent="Player"]
+z_index = 3
+position = Vector2(0, 2)
+collision_priority = 3.0
+metadata/_edit_lock_ = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="Player/Area2D2"]
+z_index = 2
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_rlg14")
+metadata/_edit_lock_ = true
+
+[node name="mapborder" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="mapborder"]
+z_index = 5
+polygon = PackedVector2Array(390.055, 244.523, 836.4, 241.54, 836.3, 108.991, 853.359, 99.849, 855.607, 252.676, 389.633, 255.673)
+
+[node name="build" type="Node2D" parent="."]
+
+[node name="StaticBody2D" parent="build" instance=ExtResource("6_khgdq")]
+position = Vector2(446, 41)
+
+[node name="StaticBody2D3" parent="build" instance=ExtResource("6_khgdq")]
+position = Vector2(625, 41)
+
+[node name="StaticBody2D11" parent="build" instance=ExtResource("6_khgdq")]
+position = Vector2(715, 41)
+
+[node name="StaticBody2D12" parent="build" instance=ExtResource("6_khgdq")]
+position = Vector2(805, 41)
+
+[node name="StaticBody2D2" parent="build" instance=ExtResource("6_khgdq")]
+position = Vector2(535, 41)
+
+[node name="StaticBody2D4" parent="build" instance=ExtResource("5_iing1")]
+z_index = 7
+position = Vector2(355, 103)
+
+[node name="StaticBody2D5" parent="build" instance=ExtResource("5_iing1")]
+z_index = 7
+position = Vector2(355, 152)
+
+[node name="StaticBody2D10" parent="build" instance=ExtResource("5_iing1")]
+z_index = 7
+position = Vector2(355, 211)
+
+[node name="StaticBody2D6" parent="build" instance=ExtResource("6_cr05k")]
+z_index = 7
+position = Vector2(501.637, 176.465)
+
+[node name="StaticBody2D7" parent="build" instance=ExtResource("6_cr05k")]
+z_index = 7
+position = Vector2(597.637, 176.465)
+
+[node name="StaticBody2D8" parent="build" instance=ExtResource("6_cr05k")]
+z_index = 7
+position = Vector2(693.637, 176.465)
+
+[node name="StaticBody2D9" parent="build" instance=ExtResource("6_cr05k")]
+z_index = 7
+position = Vector2(790.637, 176.465)
+
+[node name="Enemy" parent="." groups=["zombie"] instance=ExtResource("5_al7il")]
+position = Vector2(447.302, 127.817)
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+
+[node name="Area2D2" type="Area2D" parent="Enemy"]
+z_index = 3
+position = Vector2(0, 2)
+collision_priority = 3.0
+metadata/_edit_lock_ = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="Enemy/Area2D2"]
+z_index = 2
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_rlg14")
+metadata/_edit_lock_ = true
+
+[node name="AbstractItem" parent="." instance=ExtResource("8_ug2lb")]
+position = Vector2(813.53, 106.474)
+scale = Vector2(0.7, 0.7)
+stats = ExtResource("9_gjr38")
+
+[node name="AbstractItem2" parent="." instance=ExtResource("8_ug2lb")]
+position = Vector2(723.842, 110.84)
+scale = Vector2(0.7, 0.7)
+stats = ExtResource("10_1ampo")
+
+[node name="AbstractItem3" parent="." instance=ExtResource("8_ug2lb")]
+position = Vector2(777.02, 113.221)
+scale = Vector2(0.7, 0.7)
+stats = ExtResource("11_wyu51")
+
+[node name="ZombieSpawner" type="Node2D" parent="."]
+script = ExtResource("12_nldcx")
+
+[node name="Timer" type="Timer" parent="ZombieSpawner"]
+wait_time = 5.0
+
+[node name="Area2D" type="Area2D" parent="ZombieSpawner"]
+position = Vector2(424.845, 208.714)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieSpawner/Area2D"]
+shape = SubResource("CircleShape2D_ojynl")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="Player/Area2D2" to="Player" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Enemy/Area2D2" to="Enemy" method="_on_area_2d_2_body_entered"]

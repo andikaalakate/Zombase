@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://br3av785no3ol"]
+
+[ext_resource type="Texture2D" uid="uid://c2ve4k804u6ae" path="res://assets/sprites/items/metalbat.png" id="1_wk7u2"]
+[ext_resource type="Script" path="res://script/item.gd" id="2_bkqlt"]
+
+[resource]
+script = ExtResource("2_bkqlt")
+icon = ExtResource("1_wk7u2")
+name = "Metal Bat"
+type = "Weapon"

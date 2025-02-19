@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bax7ifof3y1pu"]
+
+[ext_resource type="Texture2D" uid="uid://b5jx24bwox7lr" path="res://assets/sprites/items/Bread.png" id="1_p20py"]
+[ext_resource type="Script" path="res://script/item.gd" id="2_cohuw"]
+
+[resource]
+script = ExtResource("2_cohuw")
+icon = ExtResource("1_p20py")
+name = "Bread"
+type = "Consume"

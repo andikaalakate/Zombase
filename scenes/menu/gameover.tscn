@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsljuhsbgmmbb"]
+
+[ext_resource type="Script" path="res://script/TextureRect.gd" id="1_3sqnf"]
+[ext_resource type="FontFile" uid="uid://brb8jbidxj0np" path="res://assets/pixelmania/Pixelmania.ttf" id="2_vyolb"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_t6f4k"]
+
+[node name="TextureRect" type="TextureRect"]
+modulate = Color(0.270588, 0.270588, 0.270588, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_t6f4k")
+script = ExtResource("1_3sqnf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -309.0
+offset_top = 63.0
+offset_right = -102.0
+offset_bottom = 95.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_vyolb")
+text = "GAME OVER!"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 599.0
+offset_top = 288.0
+offset_right = 783.0
+offset_bottom = 367.0
+theme_override_fonts/font = ExtResource("2_vyolb")
+text = "RETRY"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

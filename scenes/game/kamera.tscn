@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddsexkdb4dv88"]
+
+[ext_resource type="Script" path="res://scenes/game/characters/player/Camera2D.gd" id="1_1ahmx"]
+
+[node name="Camera2D" type="Camera2D"]
+zoom = Vector2(5, 5)
+limit_smoothed = true
+rotation_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("1_1ahmx")

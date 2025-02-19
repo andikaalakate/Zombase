@@ -1,19 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://d4hiu7316d5dm"]
+[gd_scene load_steps=11 format=3 uid="uid://d4hiu7316d5dm"]
 
 [ext_resource type="Script" path="res://scenes/game/characters/player/player.gd" id="1_xoglr"]
 [ext_resource type="Texture2D" uid="uid://cjlyfw4qfrvk2" path="res://assets/sprites/player/playersheet.png" id="2_kbhfy"]
-[ext_resource type="Script" path="res://scenes/game/characters/player/Camera2D.gd" id="3_k5cd1"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yarli"]
-radius = 6.0
-height = 24.0
+[ext_resource type="PackedScene" uid="uid://c0k2kthn8pten" path="res://scenes/menu/slot.tscn" id="3_8bgja"]
+[ext_resource type="Script" path="res://script/Hotbar.gd" id="3_qm322"]
+[ext_resource type="Script" path="res://script/Weapons.gd" id="3_x3qwi"]
 
 [sub_resource type="Animation" id="Animation_jtjfy"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("body:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +27,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("body:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,63 +44,91 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("body:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_0m7vh"]
-resource_name = "lari"
-length = 0.08
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.04),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [2, 3]
+"values": [2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a0rpw"]
 _data = {
 "RESET": SubResource("Animation_jtjfy"),
 "idle": SubResource("Animation_uyji4"),
-"jalan": SubResource("Animation_jq07c"),
-"lari": SubResource("Animation_0m7vh")
+"jalan": SubResource("Animation_jq07c")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fowr7"]
+radius = 3.28549
+height = 10.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 5
 platform_floor_layers = 4294901760
 platform_wall_layers = 65535
 script = ExtResource("1_xoglr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="body" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
 texture = ExtResource("2_kbhfy")
 hframes = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_yarli")
+vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_a0rpw")
 }
+speed_scale = 0.7
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
-limit_smoothed = true
-rotation_smoothing_enabled = true
-editor_draw_limits = true
-editor_draw_drag_margin = true
-script = ExtResource("3_k5cd1")
+[node name="Weapons" type="Node2D" parent="."]
+script = ExtResource("3_x3qwi")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hotbar" type="HBoxContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -70.0
+offset_right = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_qm322")
+
+[node name="slot" parent="UI/Hotbar" instance=ExtResource("3_8bgja")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="slot2" parent="UI/Hotbar" instance=ExtResource("3_8bgja")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="slot3" parent="UI/Hotbar" instance=ExtResource("3_8bgja")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 3
+position = Vector2(0, 5.89415)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fowr7")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(10, 0)
+
+[connection signal="child_entered_tree" from="Weapons" to="Weapons" method="_on_child_entered_tree"]
+[connection signal="index" from="UI/Hotbar" to="Weapons" method="_on_hotbar_index"]

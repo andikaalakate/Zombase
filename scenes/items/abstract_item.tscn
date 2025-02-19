@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://s3l754tpxbft"]
+
+[ext_resource type="Script" path="res://script/AbstractItem.gd" id="1_ww8x0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggaju"]
+
+[node name="AbstractItem" type="Sprite2D"]
+script = ExtResource("1_ww8x0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ggaju")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_top = 9.965
+anchor_bottom = 9.965
+offset_left = -19.0
+offset_top = -48.965
+offset_right = 21.0
+offset_bottom = -5.965
+grow_horizontal = 2
+grow_vertical = 0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_player_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

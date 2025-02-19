@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpjrpbtypnwpo"]
+
+[ext_resource type="Texture2D" uid="uid://ctpxrn53uka26" path="res://assets/sprites/build/inside-house.png" id="1_c6dap"]
+[ext_resource type="Script" path="res://script/inside_house.gd" id="2_b17xh"]
+[ext_resource type="PackedScene" uid="uid://d4hiu7316d5dm" path="res://scenes/game/characters/player/player.tscn" id="2_jkxon"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8lug"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbty0"]
+size = Vector2(26.5589, 9.84444)
+
+[node name="TextureRect" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_c6dap")
+script = ExtResource("2_b17xh")
+
+[node name="Player" parent="." instance=ExtResource("2_jkxon")]
+z_index = 3
+position = Vector2(66.3419, 135.77)
+collision_layer = 4
+collision_mask = 4
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+editor_draw_limits = true
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="Player"]
+z_index = 3
+collision_layer = 4
+collision_mask = 4
+collision_priority = 3.0
+metadata/_edit_lock_ = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="Player/Area2D"]
+z_index = 2
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_b8lug")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(46.2979, 76.1263, 46.131, 112.334, 50.4693, 112.501, 50.803, 106.661, 94.519, 106.661, 95.0195, 112.334, 99.5246, 112.334, 99.8583, 106.994, 113.874, 106.828, 114.041, 95.6483, 101.026, 95.6483, 99.8583, 76.46)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(35, 66.625, 34.8885, 101.85, 33.3136, 101.928, 33.0592, 115.87, 37.0277, 115.821, 37.1259, 151.616, 24.1093, 151.616, 23.9621, 165.303, 47.2706, 165.932, 47.1131, 174.594, 19.5524, 174.752, 18.9748, 21.8213, 252.966, 21.8103, 253.188, 127.91, 166.012, 127.625, 166.387, 175.994, 73.8099, 175.369, 73.1849, 165.869, 161.04, 165.994, 161.165, 118.038, 207.778, 117.913, 207.903, 106.788, 221.778, 106.788, 222.153, 90.2881, 208.778, 90.2881, 209.278, 62.968, 195.278, 62.843, 195.278, 69.593, 165.528, 69.718, 165.971, 108.017, 144.971, 107.767, 145.096, 98.7667, 160.971, 98.7667, 161.221, 70.1417, 122.971, 71.0167, 122.721, 98.7667, 129.721, 98.7667, 130.221, 107.767, 118.096, 107.892, 118.282, 68.3917, 92.9069, 68.7667, 92.9069, 66.7667)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(60.415, 172.058)
+shape = SubResource("RectangleShape2D_gbty0")
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

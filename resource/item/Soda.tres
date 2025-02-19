@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d0l54js0u383v"]
+
+[ext_resource type="Texture2D" uid="uid://b0ij83id7xdqa" path="res://assets/sprites/items/soda.png" id="1_ugq1l"]
+[ext_resource type="Script" path="res://script/item.gd" id="2_14ay8"]
+
+[resource]
+script = ExtResource("2_14ay8")
+icon = ExtResource("1_ugq1l")
+name = "Soda"
+type = "Consume"
